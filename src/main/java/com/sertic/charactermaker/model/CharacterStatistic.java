@@ -30,6 +30,8 @@ public class CharacterStatistic {
     @OneToOne
     private Character character = new Character();
 
+    
+
     public void setHitPoints(Long hitPoints) {
         this.hitPoints = hitPoints;
     }

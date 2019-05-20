@@ -24,6 +24,8 @@ public class Character {
 
     private String race;
 
+    //Adding tables and relations for database//
+
     @OneToMany(
             mappedBy = "character",
             cascade = CascadeType.ALL,
@@ -69,7 +71,7 @@ public class Character {
     private CharacterStatistic characterStatistic;
 
 
-
+    //Getters and Setters for Lists//
     public Set<Spell> getSpells() {
         return spells;
     }
@@ -78,7 +80,7 @@ public class Character {
         this.spells = spells;
     }
 
-   /* public Set<Weapon> getWeapons() {
+    public Set<Weapon> getWeapons() {
         return weapons;
     }
 
@@ -116,10 +118,67 @@ public class Character {
 
     public void setCharacterStatistic(CharacterStatistic characterStatistic) {
         this.characterStatistic = characterStatistic;
-    }*/
+    }
+
+
+    //Logic behind adding and removing things to lists//
+    public void addSpell(Spell spell){
+        spells.add(spell);
+        spell.setCharacter(this);
+    }
+
+    public void removeSpell(Spell spell){
+        spells.remove(spell);
+        spell.setCharacter(null);
+    }
+
+
+    public void addWeapon(Weapon weapon){
+        weapons.add(weapon);
+        weapon.setCharacter(this);
+    }
+
+    public void removeWeapon(Weapon weapon){
+        weapons.remove(weapon);
+        weapon.setCharacter(null);
+    }
+
+
+    public void addItem(Item item){
+        items.add(item);
+        item.setCharacter(this);
+    }
+
+    public void removeItem(Item item){
+        items.remove(item);
+        item.setCharacter(null);
+    }
+
+
+    public void addCoin(Coin coin){
+        coins.add(coin);
+        coin.setCharacter(this);
+    }
+
+    public void removeCoin(Coin coin){
+        coins.remove(coin);
+        coin.setCharacter(null);
+    }
+
+
+    public void addSkill(Skill skill){
+        skills.add(skill);
+        skill.setCharacter(this);
+    }
+
+    public void removeSkill(Skill skill){
+        skills.remove(skill);
+        skill.setCharacter(this);
+    }
 
 
 
+    //Getters and Setters for Character class(table)//
     public Long getId() {
         return id;
     }
