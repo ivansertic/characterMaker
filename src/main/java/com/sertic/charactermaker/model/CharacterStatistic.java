@@ -2,10 +2,7 @@ package com.sertic.charactermaker.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -29,6 +26,9 @@ public class CharacterStatistic {
     private Long characterLevel;
 
     private Long expiriencePints;
+
+    @OneToOne
+    private Character character = new Character();
 
     public void setHitPoints(Long hitPoints) {
         this.hitPoints = hitPoints;

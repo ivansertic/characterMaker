@@ -2,10 +2,7 @@ package com.sertic.charactermaker.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -26,6 +23,17 @@ public class Weapon {
     private String damageType;
 
     private Boolean equip;
+
+    @ManyToOne
+    private Character character = new Character();
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
 
     public Long getId() {
         return id;

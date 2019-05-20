@@ -6,22 +6,30 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-public class Skill {
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long Id;
 
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID externalSkillId;
+    private UUID externalItemId;
 
     private String name;
 
-    private String skillPoints;
+    private Long amount;
 
     @ManyToOne
     private Character character = new Character();
+
+    public Long getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Long amount) {
+        this.amount = amount;
+    }
 
     public Character getCharacter() {
         return character;
@@ -32,19 +40,19 @@ public class Skill {
     }
 
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        Id = id;
     }
 
-    public UUID getExternalSkillId() {
-        return externalSkillId;
+    public UUID getExternalItemId() {
+        return externalItemId;
     }
 
-    public void setExternalSkillId(UUID externalSkillId) {
-        this.externalSkillId = externalSkillId;
+    public void setExternalItemId(UUID externalItemId) {
+        this.externalItemId = externalItemId;
     }
 
     public String getName() {
@@ -55,11 +63,11 @@ public class Skill {
         this.name = name;
     }
 
-    public String getSkillPoints() {
-        return skillPoints;
+    public Long getAmmount() {
+        return amount;
     }
 
-    public void setSkillPoints(String skillPoints) {
-        this.skillPoints = skillPoints;
+    public void setAmmount(Long amount) {
+        this.amount = amount;
     }
 }
