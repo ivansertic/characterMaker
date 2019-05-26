@@ -18,7 +18,7 @@ public class Skill {
 
     private String name;
 
-    private String skillPoints;
+    private Long skillPoints;
 
     @ManyToOne
     private Character character = new Character();
@@ -55,11 +55,11 @@ public class Skill {
         this.name = name;
     }
 
-    public String getSkillPoints() {
+    public Long getSkillPoints() {
         return skillPoints;
     }
 
-    public void setSkillPoints(String skillPoints) {
+    public void setSkillPoints(Long skillPoints) {
         this.skillPoints = skillPoints;
     }
 }

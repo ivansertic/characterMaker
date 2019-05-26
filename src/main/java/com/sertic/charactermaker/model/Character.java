@@ -70,6 +70,9 @@ public class Character {
     )
     private CharacterStatistic characterStatistic;
 
+    @ManyToOne
+    private Users user;
+
 
     //Getters and Setters for Lists//
     public Set<Spell> getSpells() {
@@ -118,6 +121,14 @@ public class Character {
 
     public void setCharacterStatistic(CharacterStatistic characterStatistic) {
         this.characterStatistic = characterStatistic;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 
 
