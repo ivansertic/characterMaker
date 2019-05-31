@@ -20,9 +20,29 @@ public class Character {
 
     private String name;
 
-    private String characterClass;
+    private Long armourClass;
 
-    private String race;
+    private Long initiative;
+
+    private Long speed;
+
+    private Long hitPoints;
+
+    private Long characterLevel;
+
+    private Long expiriencePoints;
+
+    private Long strength;
+
+    private Long dexterity;
+
+    private Long constitution;
+
+    private Long intelligence;
+
+    private Long wisdom;
+
+    private Long charisma;
 
     //Adding tables and relations for database//
 
@@ -49,12 +69,6 @@ public class Character {
     )
     private Set<Item> items = new HashSet<>();
 
-    @OneToMany(
-            mappedBy = "character",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private Set<Skill> skills = new HashSet<>();
 
     @OneToMany(
             mappedBy = "character",
@@ -63,15 +77,16 @@ public class Character {
     )
     private Set<Coin> coins = new HashSet<>();
 
-    @OneToOne(
-            mappedBy = "character",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private CharacterStatistic characterStatistic;
-
     @ManyToOne
     private Users user;
+
+    @ManyToOne
+    private Race race;
+
+    @ManyToOne
+    private CharacterClass characterclass;
+
+
 
 
     //Getters and Setters for Lists//
@@ -99,14 +114,6 @@ public class Character {
         this.items = items;
     }
 
-    public Set<Skill> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(Set<Skill> skills) {
-        this.skills = skills;
-    }
-
     public Set<Coin> getCoins() {
         return coins;
     }
@@ -115,13 +122,7 @@ public class Character {
         this.coins = coins;
     }
 
-    public CharacterStatistic getCharacterStatistic() {
-        return characterStatistic;
-    }
 
-    public void setCharacterStatistic(CharacterStatistic characterStatistic) {
-        this.characterStatistic = characterStatistic;
-    }
 
     public Users getUser() {
         return user;
@@ -177,16 +178,6 @@ public class Character {
     }
 
 
-    public void addSkill(Skill skill){
-        skills.add(skill);
-        skill.setCharacter(this);
-    }
-
-    public void removeSkill(Skill skill){
-        skills.remove(skill);
-        skill.setCharacter(this);
-    }
-
 
 
     //Getters and Setters for Character class(table)//
@@ -214,19 +205,127 @@ public class Character {
         this.name = name;
     }
 
-    public String getCharacterClass() {
-        return characterClass;
+
+
+
+    /* Character Statistics */
+    public Long getArmourClass() {
+        return armourClass;
     }
 
-    public void setCharacterClass(String characterClass) {
-        this.characterClass = characterClass;
+    public void setArmourClass(Long armourClass) {
+        this.armourClass = armourClass;
     }
 
-    public String getRace() {
+    public Long getInitiative() {
+        return initiative;
+    }
+
+    public void setInitiative(Long initiative) {
+        this.initiative = initiative;
+    }
+
+    public Long getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Long speed) {
+        this.speed = speed;
+    }
+
+    public Long getHitPoints() {
+        return hitPoints;
+    }
+
+    public void setHitPoints(Long hitPoints) {
+        this.hitPoints = hitPoints;
+    }
+
+    public Long getCharacterLevel() {
+        return characterLevel;
+    }
+
+    public void setCharacterLevel(Long characterLevel) {
+        this.characterLevel = characterLevel;
+    }
+
+    public Long getExpiriencePoints() {
+        return expiriencePoints;
+    }
+
+    public void setExpiriencePoints(Long expiriencePoints) {
+        this.expiriencePoints = expiriencePoints;
+    }
+
+
+
+    /*Getters And Setters For Races And Classes*/
+
+    public Race getRace() {
         return race;
     }
 
-    public void setRace(String race) {
+    public void setRace(Race race) {
         this.race = race;
+    }
+
+    public CharacterClass getCharacterClass() {
+        return characterclass;
+    }
+
+    public void setCharacterClass(CharacterClass characterClass) {
+        this.characterclass = characterClass;
+    }
+
+
+
+    /*Getters and setters for skills*/
+
+    public Long getStrength() {
+        return strength;
+    }
+
+    public void setStrength(Long strength) {
+        this.strength = strength;
+    }
+
+    public Long getDexterity() {
+        return dexterity;
+    }
+
+    public void setDexterity(Long dexterity) {
+        this.dexterity = dexterity;
+    }
+
+    public Long getConstitution() {
+        return constitution;
+    }
+
+    public void setConstitution(Long constitution) {
+        this.constitution = constitution;
+    }
+
+    public Long getIntelligence() {
+        return intelligence;
+    }
+
+    public void setIntelligence(Long intelligence) {
+        this.intelligence = intelligence;
+    }
+
+    public Long getWisdom() {
+        return wisdom;
+    }
+
+    public void setWisdom(Long wisdom) {
+        this.wisdom = wisdom;
+    }
+
+    public Long getCharisma() {
+        return charisma;
+    }
+
+    public void setCharisma(Long charisma) {
+        this.charisma = charisma;
     }
 }
