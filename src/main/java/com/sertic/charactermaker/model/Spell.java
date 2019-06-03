@@ -20,11 +20,14 @@ public class Spell {
 
     private String description;
 
-    private Boolean prepare;
-
     private String type;
 
     private Long spellLevel;
+
+
+
+    @ManyToOne
+    private Character character = new Character();
 
     public Character getCharacter() {
         return character;
@@ -33,9 +36,6 @@ public class Spell {
     public void setCharacter(Character character) {
         this.character = character;
     }
-
-    @ManyToOne
-    private Character character = new Character();
 
     public Long getId() {
         return id;
@@ -69,13 +69,6 @@ public class Spell {
         this.description = description;
     }
 
-    public Boolean getPrepare() {
-        return prepare;
-    }
-
-    public void setPrepare(Boolean prepare) {
-        this.prepare = prepare;
-    }
 
     public String getType() {
         return type;

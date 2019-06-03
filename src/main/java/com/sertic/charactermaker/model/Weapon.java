@@ -22,7 +22,7 @@ public class Weapon {
 
     private String damageType;
 
-    private Boolean equip;
+
 
     @ManyToOne
     private Character character = new Character();
@@ -75,11 +75,4 @@ public class Weapon {
         this.damageType = damageType;
     }
 
-    public Boolean getEquip() {
-        return equip;
-    }
-
-    public void setEquip(Boolean equip) {
-        this.equip = equip;
-    }
 }

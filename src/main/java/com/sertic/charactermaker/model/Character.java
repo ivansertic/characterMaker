@@ -18,8 +18,10 @@ public class Character {
     @GenericGenerator(name="uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID externalCharacterId;
 
+
     private String name;
 
+    //Character statistics
     private Long armourClass;
 
     private Long initiative;
@@ -32,6 +34,8 @@ public class Character {
 
     private Long expiriencePoints;
 
+
+    // Skills
     private Long strength;
 
     private Long dexterity;
