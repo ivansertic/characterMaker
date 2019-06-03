@@ -62,12 +62,4 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Long getAmmount() {
-        return amount;
-    }
-
-    public void setAmmount(Long amount) {
-        this.amount = amount;
-    }
 }

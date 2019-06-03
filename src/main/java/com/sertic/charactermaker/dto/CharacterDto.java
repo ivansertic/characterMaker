@@ -153,7 +153,7 @@ public class CharacterDto {
 
 
     //Character Skills Getters And Setters
-    
+
     public Long getStrengthDto() {
         return strengthDto;
     }
