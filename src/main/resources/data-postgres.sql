@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+
 INSERT INTO race(id,external_race_id,name) VALUES('1',uuid_generate_v4(),'DWARF')
 INSERT INTO race(id,external_race_id,name) Values('2',uuid_generate_v4(),'ELF')
 INSERT INTO race(id,external_race_id,name) VALUES('3',uuid_generate_v4(),'HUMAN')
