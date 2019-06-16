@@ -3,6 +3,7 @@ package com.sertic.charactermaker.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -75,4 +76,22 @@ public class Weapon {
         this.damageType = damageType;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Weapon weapon = (Weapon) o;
+        return Objects.equals(id, weapon.id) &&
+                Objects.equals(externalWeaponId, weapon.externalWeaponId) &&
+                Objects.equals(name, weapon.name) &&
+                Objects.equals(attackBonus, weapon.attackBonus) &&
+                Objects.equals(damageType, weapon.damageType) &&
+                Objects.equals(character, weapon.character);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, externalWeaponId, name, attackBonus, damageType, character);
+    }
 }

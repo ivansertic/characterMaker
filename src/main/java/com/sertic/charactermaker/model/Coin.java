@@ -3,6 +3,7 @@ package com.sertic.charactermaker.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -62,5 +63,23 @@ public class Coin {
 
     public void setCoinType(String coinType) {
         this.coinType = coinType;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coin coin = (Coin) o;
+        return Objects.equals(id, coin.id) &&
+                Objects.equals(externalId, coin.externalId) &&
+                Objects.equals(coinType, coin.coinType) &&
+                Objects.equals(amount, coin.amount) &&
+                Objects.equals(character, coin.character);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, externalId, coinType, amount, character);
     }
 }

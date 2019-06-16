@@ -3,6 +3,7 @@ package com.sertic.charactermaker.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -61,5 +62,23 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Objects.equals(Id, item.Id) &&
+                Objects.equals(externalItemId, item.externalItemId) &&
+                Objects.equals(name, item.name) &&
+                Objects.equals(amount, item.amount) &&
+                Objects.equals(character, item.character);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(Id, externalItemId, name, amount, character);
     }
 }

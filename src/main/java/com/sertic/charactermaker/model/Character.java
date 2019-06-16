@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -351,5 +352,38 @@ public class Character {
 
     public void setRaceId(Long raceId) {
         this.characterRaceNumber = raceId;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Character character = (Character) o;
+        return Objects.equals(id, character.id) &&
+                Objects.equals(externalCharacterId, character.externalCharacterId) &&
+                Objects.equals(name, character.name) &&
+                Objects.equals(armourClass, character.armourClass) &&
+                Objects.equals(initiative, character.initiative) &&
+                Objects.equals(speed, character.speed) &&
+                Objects.equals(hitPoints, character.hitPoints) &&
+                Objects.equals(characterLevel, character.characterLevel) &&
+                Objects.equals(expiriencePoints, character.expiriencePoints) &&
+                Objects.equals(strength, character.strength) &&
+                Objects.equals(dexterity, character.dexterity) &&
+                Objects.equals(constitution, character.constitution) &&
+                Objects.equals(intelligence, character.intelligence) &&
+                Objects.equals(wisdom, character.wisdom) &&
+                Objects.equals(charisma, character.charisma) &&
+                Objects.equals(characterClassNumber, character.characterClassNumber) &&
+                Objects.equals(characterRaceNumber, character.characterRaceNumber) &&
+                Objects.equals(user, character.user) &&
+                Objects.equals(race, character.race) &&
+                Objects.equals(characterclass, character.characterclass);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, externalCharacterId, name, armourClass, initiative, speed, hitPoints, characterLevel, expiriencePoints, strength, dexterity, constitution, intelligence, wisdom, charisma, characterClassNumber, characterRaceNumber, user, race, characterclass);
     }
 }

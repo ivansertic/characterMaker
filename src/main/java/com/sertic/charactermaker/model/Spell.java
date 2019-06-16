@@ -3,6 +3,7 @@ package com.sertic.charactermaker.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -84,5 +85,25 @@ public class Spell {
 
     public void setSpellLevel(Long spellLevel) {
         this.spellLevel = spellLevel;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Spell spell = (Spell) o;
+        return Objects.equals(id, spell.id) &&
+                Objects.equals(externalSpellId, spell.externalSpellId) &&
+                Objects.equals(name, spell.name) &&
+                Objects.equals(description, spell.description) &&
+                Objects.equals(type, spell.type) &&
+                Objects.equals(spellLevel, spell.spellLevel) &&
+                Objects.equals(character, spell.character);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, externalSpellId, name, description, type, spellLevel, character);
     }
 }

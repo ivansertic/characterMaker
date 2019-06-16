@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -57,5 +58,21 @@ public class CharacterClass {
 
     public void setCharacters(Set<Character> characters) {
         this.characters = characters;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CharacterClass that = (CharacterClass) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(externalCharacterClassId, that.externalCharacterClassId) &&
+                Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, externalCharacterClassId, name);
     }
 }
