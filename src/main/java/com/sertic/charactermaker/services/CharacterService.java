@@ -18,4 +18,6 @@ public interface CharacterService {
     void deleteByExternalId(UUID externalCharacterId);
 
     void createCharacter(Character character);
+
+    List<Character> getCharacterOfARace(Long id);
 }

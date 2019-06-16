@@ -45,4 +45,9 @@ public class CharacterServiceImpl implements CharacterService{
     public void createCharacter(Character character) {
         characterRepo.save(character);
     }
+
+    @Override
+    public List<Character> getCharacterOfARace(Long id) {
+        return characterRepo.gettAllCharactersOfARace(id);
+    }
 }

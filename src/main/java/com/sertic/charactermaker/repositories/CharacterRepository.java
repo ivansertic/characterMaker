@@ -24,4 +24,7 @@ public interface CharacterRepository extends CrudRepository<Character, Long> {
     @Modifying
     @Query("DELETE FROM Character c WHERE c.externalCharacterId = ?1")
     void deleteByExternalCharacterId(UUID externalCharacterId);
+
+    @Query("SELECT c FROM Character c WHERE c.race.id = ?1")
+    List<Character> gettAllCharactersOfARace(Long raceId);
 }

@@ -61,6 +61,11 @@ public class Race {
         this.characters = characters;
     }
 
+    public void addCharacter(Character character){
+        characters.add(character);
+        character.setRace(this);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

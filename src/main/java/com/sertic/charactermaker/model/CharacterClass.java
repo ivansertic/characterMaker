@@ -60,6 +60,11 @@ public class CharacterClass {
         this.characters = characters;
     }
 
+    public void addChracter(Character character){
+        characters.add(character);
+        character.setCharacterClass(this);
+    }
+
 
     @Override
     public boolean equals(Object o) {
