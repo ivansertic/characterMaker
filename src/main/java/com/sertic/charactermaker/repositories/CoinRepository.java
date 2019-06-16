@@ -12,8 +12,10 @@ import java.util.UUID;
 @Repository
 public interface CoinRepository extends CrudRepository<Coin, Long> {
 
+    Coin findByExternalId(UUID externalCoinId);
+
     @Query("SELECT c FROM Coin c WHERE c.character.externalCharacterId = ?1")
-    List<CoinRepository> getCoinByExternalCharacterId(UUID externalCharacterId);
+    List<Coin> getCoinByExternalCharacterId(UUID externalCharacterId);
 
     @Query("SELECT c FROM Coin c WHERE c.character.user.externalUserId = ?1 and " +
             "c.character.externalCharacterId = ?2 and c.externalId = ?3")

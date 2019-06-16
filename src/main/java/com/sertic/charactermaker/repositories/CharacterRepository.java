@@ -12,6 +12,8 @@ import java.util.UUID;
 @Repository
 public interface CharacterRepository extends CrudRepository<Character, Long> {
 
+    Character findByExternalCharacterId(UUID externalCharacterId);
+
     @Query("SELECT c FROM Character c WHERE c.user.externalUserId = ?1")
     List<Character> getAllByExternalUserId(UUID externalUserId);
 

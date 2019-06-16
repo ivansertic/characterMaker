@@ -12,6 +12,8 @@ import java.util.UUID;
 @Repository
 public interface ItemRepository extends CrudRepository<Item, Long> {
 
+    Item findByExternalItemId(UUID externalItemId);
+
     @Query("SELECT i FROM Item i WHERE i.character.externalCharacterId = ?1")
     List<Item> getByExternalCharacterId(UUID externalCharacterId);
 

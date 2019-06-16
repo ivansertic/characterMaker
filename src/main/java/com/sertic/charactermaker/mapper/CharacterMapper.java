@@ -45,6 +45,8 @@ public class CharacterMapper {
         entity.setIntelligence(dto.getIntelligenceDto());
         entity.setWisdom(dto.getWisdomDto());
         entity.setCharisma(dto.getCharismaDto());
+        entity.setCharacterClassId(dto.getCharacterClassIdDto());
+        entity.setRaceId(dto.getRaceIdDto());
     }
 
     public CharacterDto toDot(Character entity){
@@ -64,6 +66,8 @@ public class CharacterMapper {
         dto.setCharismaDto(entity.getCharisma());
         dto.setExternalCharacterIdDto(entity.getExternalCharacterId());
         dto.setId(entity.getId());
+        dto.setCharacterClassIdDto(entity.getCharacterClassId());
+        dto.setRaceIdDto(entity.getRaceId());
 
         return dto;
     }

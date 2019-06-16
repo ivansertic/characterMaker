@@ -45,6 +45,10 @@ public class CharacterDto {
 
     private Long charismaDto;
 
+    private Long characterClassIdDto;
+
+    private Long raceIdDto;
+
 
 
     //Basic Table Getters And Setters
@@ -200,5 +204,21 @@ public class CharacterDto {
 
     public void setCharismaDto(Long charismaDto) {
         this.charismaDto = charismaDto;
+    }
+
+    public Long getCharacterClassIdDto() {
+        return characterClassIdDto;
+    }
+
+    public void setCharacterClassIdDto(Long characterClassIdDto) {
+        this.characterClassIdDto = characterClassIdDto;
+    }
+
+    public Long getRaceIdDto() {
+        return raceIdDto;
+    }
+
+    public void setRaceIdDto(Long raceIdDto) {
+        this.raceIdDto = raceIdDto;
     }
 }

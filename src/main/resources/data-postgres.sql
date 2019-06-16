@@ -21,7 +21,3 @@ INSERT INTO characterclass(id,external_character_class_id,name) VALUES ('7',uuid
 INSERT INTO characterclass(id,external_character_class_id,name) VALUES ('8',uuid_generate_v4(),'ROGUE')
 INSERT INTO characterclass(id,external_character_class_id,name) VALUES ('9',uuid_generate_v4(),'MONK')
 INSERT INTO characterclass(id,external_character_class_id,name) VALUES ('10',uuid_generate_v4(),'WIZARD')
-
-INSERT INTO cointype(id,external_coin_type_id,name) VALUES ('1',uuid_generate_v4(),'SILVER')
-INSERT INTO cointype(id,external_coin_type_id,name) VALUES ('2',uuid_generate_v4(),'GOLD')
-INSERT INTO cointype(id,external_coin_type_id,name) VALUES ('3',uuid_generate_v4(),'COPPER')

@@ -16,10 +16,10 @@ public class Coin {
     @GenericGenerator(name="uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID externalId;
 
-    @ManyToOne
-    private CoinType cointype;
+    private String coinType;
 
     private Long amount;
+
 
     @ManyToOne
     private Character character = new Character();
@@ -40,14 +40,6 @@ public class Coin {
         this.externalId = externalId;
     }
 
-    public CoinType getCoinType() {
-        return cointype;
-    }
-
-    public void setCoinType(CoinType coinType) {
-        this.cointype = coinType;
-    }
-
     public Long getAmount() {
         return amount;
     }
@@ -62,5 +54,13 @@ public class Coin {
 
     public void setCharacter(Character character) {
         this.character = character;
+    }
+
+    public String getCoinType() {
+        return coinType;
+    }
+
+    public void setCoinType(String coinType) {
+        this.coinType = coinType;
     }
 }

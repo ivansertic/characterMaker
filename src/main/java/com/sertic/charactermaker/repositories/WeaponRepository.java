@@ -12,6 +12,8 @@ import java.util.UUID;
 @Repository
 public interface WeaponRepository extends CrudRepository<Weapon, Long> {
 
+    Weapon findByExternalWeaponId(UUID externalWeaponId);
+
     @Query("SELECT w FROM Weapon w WHERE w.character.user.externalUserId = ?1 and " +
             "w.character.externalCharacterId = ?2 and w.externalWeaponId = ?3")
     Weapon getWeaponByCharaterAndUser(UUID externalUserId, UUID externalCharacterID, UUID externalWeaponId);

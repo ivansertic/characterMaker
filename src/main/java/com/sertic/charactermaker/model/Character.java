@@ -48,6 +48,10 @@ public class Character {
 
     private Long charisma;
 
+    private Long characterClassNumber;
+
+    private Long characterRaceNumber;
+
     //Adding tables and relations for database//
 
     @OneToMany(
@@ -331,5 +335,21 @@ public class Character {
 
     public void setCharisma(Long charisma) {
         this.charisma = charisma;
+    }
+
+    public Long getCharacterClassId() {
+        return characterClassNumber;
+    }
+
+    public void setCharacterClassId(Long characterClassId) {
+        this.characterClassNumber = characterClassId;
+    }
+
+    public Long getRaceId() {
+        return characterRaceNumber;
+    }
+
+    public void setRaceId(Long raceId) {
+        this.characterRaceNumber = raceId;
     }
 }

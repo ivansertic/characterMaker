@@ -11,6 +11,7 @@ public class CoinMapper {
 
     public void update(Coin entity, CoinDto dto){
         entity.setAmount(dto.getAmmountDto());
+        entity.setCoinType(dto.getCoinTypeDto());
     }
 
     public CoinDto toDto(Coin entity){
@@ -18,6 +19,7 @@ public class CoinMapper {
         dto.setAmmountDto(entity.getAmount());
         dto.setIdDto(entity.getId());
         dto.setExternalCoinIdDto(entity.getExternalId());
+        dto.setCoinTypeDto(entity.getCoinType());
 
         return dto;
     }

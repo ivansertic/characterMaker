@@ -8,11 +8,12 @@ public class CoinDto {
 
     private UUID externalCoinIdDto;
 
-    private CoinTypeDto coinTypeDto;
 
     private Long ammountDto;
 
     private CharacterDto characterDto;
+
+    private String coinTypeDto;
 
 
     public Long getIdDto() {
@@ -31,11 +32,11 @@ public class CoinDto {
         this.externalCoinIdDto = externalCoinIdDto;
     }
 
-    public CoinTypeDto getCoinTypeDto() {
+    public String getCoinTypeDto() {
         return coinTypeDto;
     }
 
-    public void setCoinTypeDto(CoinTypeDto coinTypeDto) {
+    public void setCoinTypeDto(String coinTypeDto) {
         this.coinTypeDto = coinTypeDto;
     }
 
@@ -54,4 +55,5 @@ public class CoinDto {
     public void setCharacterDto(CharacterDto characterDto) {
         this.characterDto = characterDto;
     }
+    
 }
