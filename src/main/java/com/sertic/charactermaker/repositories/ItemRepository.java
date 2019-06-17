@@ -23,6 +23,6 @@ public interface ItemRepository extends CrudRepository<Item, Long> {
                                              UUID externalItemId);
 
     @Modifying
-    @Query("SELECT i FROM Item i WHERE i.externalItemId = ?1")
+    @Query("DELETE FROM Item i WHERE i.externalItemId = ?1")
     void deleteByExternalWeaponId(UUID externalWeaponId);
 }

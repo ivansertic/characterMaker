@@ -21,7 +21,7 @@ public class Item {
 
     private Long amount;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Character character = new Character();
 
     public Long getAmount() {

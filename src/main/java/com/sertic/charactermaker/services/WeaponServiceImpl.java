@@ -45,4 +45,5 @@ public class WeaponServiceImpl implements WeaponService {
     public void create(Weapon weapon) {
         weaponRepo.save(weapon);
     }
+
 }

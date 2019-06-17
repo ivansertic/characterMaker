@@ -25,7 +25,7 @@ public class Weapon {
 
 
 
-    @ManyToOne
+    @ManyToOne( cascade = CascadeType.ALL)
     private Character character = new Character();
 
     public Character getCharacter() {

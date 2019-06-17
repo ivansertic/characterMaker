@@ -25,4 +25,5 @@ public interface WeaponRepository extends CrudRepository<Weapon, Long> {
     @Modifying
     @Query("DELETE FROM Weapon w WHERE w.externalWeaponId = ?1")
     void deleteByExternalWeaponId(UUID externalWeaponId);
+
 }

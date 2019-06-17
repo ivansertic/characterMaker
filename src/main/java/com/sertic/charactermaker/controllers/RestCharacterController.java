@@ -6,10 +6,7 @@ import com.sertic.charactermaker.model.Character;
 import com.sertic.charactermaker.model.CharacterClass;
 import com.sertic.charactermaker.model.Race;
 import com.sertic.charactermaker.model.Users;
-import com.sertic.charactermaker.services.CharacterClassService;
-import com.sertic.charactermaker.services.CharacterService;
-import com.sertic.charactermaker.services.RaceService;
-import com.sertic.charactermaker.services.UserService;
+import com.sertic.charactermaker.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +34,9 @@ public class RestCharacterController {
 
     @Autowired
     private CharacterMapper characterMapper;
+
+    @Autowired
+    private WeaponService weaponService;
 
     //CreateCharacter
     @RequestMapping(value = "/{externalUserId}/character", method = RequestMethod.POST)
@@ -110,6 +110,10 @@ public class RestCharacterController {
         if(character == null){
             return ResponseEntity.notFound().build();
         }else{
+            character.getItems().clear();
+            character.getCoins().clear();
+            character.getSpells().clear();
+            character.getWeapons().clear();
             characterService.deleteByExternalId(externalCharacterId);
             return ResponseEntity.ok().build();
         }
