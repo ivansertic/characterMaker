@@ -13,7 +13,7 @@ public interface CharacterService {
 
     Character GetCharacterFromUser(UUID externalCharacterId, UUID externalUserId);
 
-    void updateCharacter(UUID externalUserId, Character character);
+    void updateCharacter(UUID externalCharacterId, Character character);
 
     void deleteByExternalId(UUID externalCharacterId);
 

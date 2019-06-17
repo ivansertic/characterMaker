@@ -32,7 +32,7 @@ public class CharacterServiceImpl implements CharacterService{
     }
 
     @Override
-    public void updateCharacter(UUID externalUserId, Character character) {
+    public void updateCharacter(UUID externalCharacterId, Character character) {
         characterRepo.save(character);
     }
 
