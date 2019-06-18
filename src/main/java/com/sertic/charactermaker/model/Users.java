@@ -19,6 +19,7 @@ public class Users {
     private UUID externalUserId;
 
 
+    @Column(unique = true)
     private String username;
 
     private String password;

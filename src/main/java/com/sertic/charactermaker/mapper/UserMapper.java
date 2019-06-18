@@ -2,6 +2,7 @@ package com.sertic.charactermaker.mapper;
 
 import com.sertic.charactermaker.dto.UserDto;
 import com.sertic.charactermaker.model.Users;
+import com.sertic.charactermaker.util.Md5Hash;
 import org.springframework.stereotype.Component;
 
 import java.security.NoSuchAlgorithmException;
@@ -12,7 +13,7 @@ public class UserMapper {
 
     public void update(Users entity, UserDto dto) throws NoSuchAlgorithmException{
         entity.setUsername(dto.getUsername());
-        //entity.setPassword(Md5Hash.hashPassword(dto.getPassword()));
+        entity.setPassword(Md5Hash.hashPassword(dto.getPassword()));
     }
 
     public UserDto toDto(Users entity){

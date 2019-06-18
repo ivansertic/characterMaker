@@ -1,9 +1,13 @@
 package com.sertic.charactermaker.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class UserDto {
 
+    @NotNull
     private String username;
 
+    @NotNull
     private String password;
 
     public String getUsername() {
