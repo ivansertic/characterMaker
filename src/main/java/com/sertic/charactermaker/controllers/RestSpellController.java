@@ -6,6 +6,8 @@ import com.sertic.charactermaker.model.Character;
 import com.sertic.charactermaker.model.Spell;
 import com.sertic.charactermaker.services.CharacterService;
 import com.sertic.charactermaker.services.SpellService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +30,11 @@ public class RestSpellController {
     @Autowired
     private SpellMapper spellMapper;
 
+    public static final Logger logger = LoggerFactory.getLogger(RestCharacterController.class);
+
 
     //Create Spell
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value="{externalUserId}/character/{externalCharacterId}/spell", method = RequestMethod.POST)
     public ResponseEntity<String> createSpell(@PathVariable("externalUserId")UUID externalUserId,
                                               @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -51,6 +56,7 @@ public class RestSpellController {
     }
 
     //Update Spell
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "{externalUserId}/character/{externalCharacterId}/spell/{externalSpellId}", method = RequestMethod.PUT)
     public ResponseEntity<String> updateSpell(@PathVariable("externalUserId")UUID externalUserId,
                                               @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -69,6 +75,7 @@ public class RestSpellController {
 
 
     //GetAllSpells
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value="{externalUserId}/character/{externalCharacterId}/spell", method = RequestMethod.GET)
     public ResponseEntity<List<SpellDto>> getAllSpells(@PathVariable("externalUserId")UUID externalUserId,
                                                        @PathVariable("externalCharacterId")UUID externalCharacterId){
@@ -88,6 +95,7 @@ public class RestSpellController {
     }
 
     //Get Spell
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "{externalUserId}/character/{externalCharacterId}/spell/{externalSpellId}", method = RequestMethod.GET)
     public ResponseEntity<SpellDto> getSpell(@PathVariable("externalUserId")UUID externalUserId,
                                              @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -104,6 +112,7 @@ public class RestSpellController {
 
 
     //Delete Spell
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "{externalUserId}/character/{externalCharacterId}/spell/{externalSpellId}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteSpell(@PathVariable("externalUserId")UUID externalUserId,
                                               @PathVariable("externalCharacterId")UUID externalCharacterId,

@@ -10,8 +10,6 @@ public class SpellDto {
 
     private String nameDto;
 
-    private String descriptionDto;
-
     private String typeDto;
 
     private Long spellLevelDto;
@@ -41,14 +39,6 @@ public class SpellDto {
 
     public void setNameDto(String nameDto) {
         this.nameDto = nameDto;
-    }
-
-    public String getDesriptionDto() {
-        return descriptionDto;
-    }
-
-    public void setDesriptionDto(String descriptionDto) {
-        this.descriptionDto = descriptionDto;
     }
 
     public String getTypeDto() {

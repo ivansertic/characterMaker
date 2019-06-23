@@ -6,6 +6,8 @@ import com.sertic.charactermaker.model.Character;
 import com.sertic.charactermaker.model.Coin;
 import com.sertic.charactermaker.services.CharacterService;
 import com.sertic.charactermaker.services.CoinService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +30,11 @@ public class RestCoinController {
     @Autowired
     private CoinMapper coinMapper;
 
+    public static final Logger logger = LoggerFactory.getLogger(RestCharacterController.class);
+
 
     //Create Coin
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "{externalUserId}/character/{externalCharacterId}/coin", method = RequestMethod.POST)
     public ResponseEntity<String> createCoin(@PathVariable("externalUserId") UUID externalUserId,
                                              @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -52,6 +57,7 @@ public class RestCoinController {
     }
 
     //Update Coin
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "{externalUserId}/character/{externalCharacterId}/coin/{externalCoinId}", method = RequestMethod.PUT)
     public ResponseEntity<String> updateCoin(@PathVariable("externalUserId") UUID externalUserId,
                                              @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -71,6 +77,7 @@ public class RestCoinController {
 
 
     //Get All coins
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "{externalUserId}/character/{externalCharacterId}/coin", method = RequestMethod.GET)
     public ResponseEntity<List<CoinDto>> getAllCoins(@PathVariable("externalUserId") UUID externalUserId,
                                                      @PathVariable("externalCharacterId")UUID externalCharacterId){
@@ -91,6 +98,7 @@ public class RestCoinController {
 
 
     //Get Single coin
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "{externalUserId}/character/{externalCharacterId}/coin/{externalCoinId}", method = RequestMethod.GET)
     public ResponseEntity<CoinDto> getCoin(@PathVariable("externalUserId") UUID externalUserId,
                                            @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -107,6 +115,7 @@ public class RestCoinController {
 
 
     //Delete Coin
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping (value = "{externalUserId}/character/{externalCharacterId}/coin/{externalCoinId}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteCoin(@PathVariable("externalUserId") UUID externalUserId,
                                              @PathVariable("externalCharacterId")UUID externalCharacterId,

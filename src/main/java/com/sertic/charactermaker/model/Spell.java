@@ -19,8 +19,6 @@ public class Spell {
 
     private String name;
 
-    private String description;
-
     private String type;
 
     private Long spellLevel;
@@ -62,13 +60,6 @@ public class Spell {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
 
     public String getType() {
@@ -96,7 +87,6 @@ public class Spell {
         return Objects.equals(id, spell.id) &&
                 Objects.equals(externalSpellId, spell.externalSpellId) &&
                 Objects.equals(name, spell.name) &&
-                Objects.equals(description, spell.description) &&
                 Objects.equals(type, spell.type) &&
                 Objects.equals(spellLevel, spell.spellLevel) &&
                 Objects.equals(character, spell.character);
@@ -104,6 +94,6 @@ public class Spell {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, externalSpellId, name, description, type, spellLevel, character);
+        return Objects.hash(id, externalSpellId, name, type, spellLevel, character);
     }
 }

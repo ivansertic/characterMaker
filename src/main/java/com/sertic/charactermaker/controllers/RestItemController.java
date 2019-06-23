@@ -6,6 +6,8 @@ import com.sertic.charactermaker.model.Character;
 import com.sertic.charactermaker.model.Item;
 import com.sertic.charactermaker.services.CharacterService;
 import com.sertic.charactermaker.services.ItemService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +30,10 @@ public class RestItemController {
     @Autowired
     private ItemMapper itemMapper;
 
-    //Create Item
+    public static final Logger logger = LoggerFactory.getLogger(RestCharacterController.class);
 
+    //Create Item
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}/item", method = RequestMethod.POST)
     public ResponseEntity<String> createItem(@PathVariable("externalUserId") UUID externalUserId,
                                              @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -51,6 +55,7 @@ public class RestItemController {
     }
 
     //Update Item
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}/item/{externalItemId}", method = RequestMethod.PUT)
     public ResponseEntity<String> updateItem(@PathVariable("externalUserId")UUID externalUserId,
                                              @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -69,6 +74,7 @@ public class RestItemController {
     }
 
     //Get All Items
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}/item", method = RequestMethod.GET)
     public ResponseEntity<List<ItemDto>> getAllItems(@PathVariable("externalUserId")UUID externalUserId,
                                                      @PathVariable("externalCharacterId")UUID externalCharacterId){
@@ -87,6 +93,7 @@ public class RestItemController {
     }
 
     //Get Single Item
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}/item/{externalItemId}", method = RequestMethod.GET)
     public ResponseEntity<ItemDto> getItem(@PathVariable("externalUserId")UUID externalUserId,
                                            @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -101,6 +108,7 @@ public class RestItemController {
     }
 
     //Delete Item
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}/item/{externalItemId}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteItem(@PathVariable("externalUserId")UUID externalUserId,
                                              @PathVariable("externalCharacterId")UUID externalCharacterId,

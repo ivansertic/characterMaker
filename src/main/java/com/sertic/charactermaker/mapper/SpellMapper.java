@@ -10,7 +10,6 @@ import java.util.UUID;
 public class SpellMapper {
 
     public void update(Spell entity, SpellDto dto){
-        entity.setDescription(dto.getDesriptionDto());
         entity.setName(dto.getNameDto());
         entity.setSpellLevel(dto.getSpellLevelDto());
         entity.setType(dto.getTypeDto());
@@ -18,7 +17,6 @@ public class SpellMapper {
 
     public SpellDto toDto(Spell entity){
         SpellDto dto = new SpellDto();
-        dto.setDesriptionDto(entity.getDescription());
         dto.setNameDto(entity.getName());
         dto.setSpellLevelDto(entity.getSpellLevel());
         dto.setTypeDto(entity.getType());

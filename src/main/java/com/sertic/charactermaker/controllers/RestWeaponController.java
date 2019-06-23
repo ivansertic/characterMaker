@@ -6,6 +6,8 @@ import com.sertic.charactermaker.model.Character;
 import com.sertic.charactermaker.model.Weapon;
 import com.sertic.charactermaker.services.CharacterService;
 import com.sertic.charactermaker.services.WeaponService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +30,11 @@ public class RestWeaponController {
     @Autowired
     private WeaponMapper weaponMapper;
 
+    public static final Logger logger = LoggerFactory.getLogger(RestCharacterController.class);
+
 
     //Create a Weapon
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}/weapon", method = RequestMethod.POST)
     public ResponseEntity<String> createWeapon(@PathVariable("externalUserId") UUID externalUserId,
                                                @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -51,6 +56,7 @@ public class RestWeaponController {
     }
 
     //Update Weapon
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}/weapon/{externalWeaponId}", method = RequestMethod.PUT)
     public ResponseEntity<String> updateWeapon(@PathVariable("externalUserId")UUID externalUserId,
                                                @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -68,7 +74,7 @@ public class RestWeaponController {
     }
 
     //Get All Weapons
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}/weapon",method = RequestMethod.GET)
     public ResponseEntity<List<WeaponDto>> getAllWeapons(@PathVariable("externalUserId")UUID externalUserId,
                                                          @PathVariable("externalCharacterId")UUID externalCharacterId){
@@ -87,6 +93,7 @@ public class RestWeaponController {
     }
 
     //Get Single Weapon
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}/weapon/{externalWeaponId}", method = RequestMethod.GET)
     public ResponseEntity<WeaponDto> getAWeapon(@PathVariable("externalUserId")UUID externalUserId,
                                                 @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -101,6 +108,7 @@ public class RestWeaponController {
     }
 
     //Delete Weapon
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}/weapon/{externalWeaponId}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteWeapon(@PathVariable("externalUserId")UUID externalUserId,
                                                @PathVariable("externalCharacterId")UUID externalCharacterId,

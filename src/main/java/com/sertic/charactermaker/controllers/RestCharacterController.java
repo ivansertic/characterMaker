@@ -7,6 +7,8 @@ import com.sertic.charactermaker.model.CharacterClass;
 import com.sertic.charactermaker.model.Race;
 import com.sertic.charactermaker.model.Users;
 import com.sertic.charactermaker.services.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +40,10 @@ public class RestCharacterController {
     @Autowired
     private WeaponService weaponService;
 
+    public static final Logger logger = LoggerFactory.getLogger(RestCharacterController.class);
+
     //CreateCharacter
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character", method = RequestMethod.POST)
     public ResponseEntity<String> createCharacter(@PathVariable("externalUserId") UUID externalUserId,
                                                   @RequestBody CharacterDto dto){
@@ -70,6 +75,7 @@ public class RestCharacterController {
     }
 
     //Update character
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}", method = RequestMethod.PUT)
     public ResponseEntity<String> updateCharacter(@PathVariable("externalUserId")UUID externalUserId,
                                                   @PathVariable("externalCharacterId")UUID externalCharacterId,
@@ -102,6 +108,7 @@ public class RestCharacterController {
 
 
     //Delete character
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteCharacter(@PathVariable("externalUserId")UUID externalUserId,
                                                   @PathVariable("externalCharacterId")UUID externalCharacterId){
@@ -120,6 +127,7 @@ public class RestCharacterController {
     }
 
     //Return all characters
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character", method = RequestMethod.GET)
     public ResponseEntity<List<CharacterDto>> getAllCharacters(@PathVariable("externalUserId")UUID externalUserId){
 
@@ -137,6 +145,7 @@ public class RestCharacterController {
     }
 
     //Return one character
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/{externalUserId}/character/{externalCharacterId}", method = RequestMethod.GET)
     public ResponseEntity<CharacterDto> getACharacter(@PathVariable("externalUserId")UUID externalUserId,
                                                       @PathVariable("externalCharacterId")UUID externalCharacterId){
@@ -153,6 +162,7 @@ public class RestCharacterController {
 
 
     //Test
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public ResponseEntity<List<CharacterDto>> getCharacterOfRace(){
         final List<Character> characters = new LinkedList<>();
